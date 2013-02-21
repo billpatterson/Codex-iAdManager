@@ -11,6 +11,10 @@
 #import "CLiAdManager.h"
 
 
+// Set to YES to enable trace logging of iAd events
+#define LOG YES
+
+
 @interface CLiAdManager()
 
 // Remember/hold the one instance of iAd view:
@@ -37,6 +41,7 @@
         self.controllerShowingViewsNeedingAds = controller;
         [controller setDelegate: self];
         [self createAdBannerView];
+        self.lastShownViewController = controller.topViewController;
     }
     return self;
 }
@@ -71,7 +76,7 @@
 // Instantiate the reusable iAdBannerView and set this object as its delegate
 - (void) createAdBannerView
 {
-    LogTrace(@"%@", @"AppDelegate: creating AdBannderView");
+    if (LOG) NSLog(@"CLiAdManager - creating AdBannderView");
     // On iOS 6 ADBannerView introduces a new initializer, use it when available.
     if ([ADBannerView instancesRespondToSelector:@selector(initWithAdType:)]) {
         self.adBannerView = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
@@ -93,14 +98,14 @@
 
 - (void) bannerViewWillLoadAd:(ADBannerView *)banner
 {
-    //LogTrace(@"%@", @"bannerViewWillLoadAd: %@", banner);
+    if (LOG) NSLog(@"CLiAdManager - bannerViewWillLoadAd: %@", banner);
     // Do nothing. Ad has not yet loaded, is not ready for display.
     // Placeholder in case code needs to be added here in the future for some purpose.
 }
 
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner
 {
-    //LogTrace(@"bannerViewDidLoadAd: %@", banner);
+    if (LOG) NSLog(@"CLiAdManager - bannerViewDidLoadAd: %@", banner);
     // Ignore banner parameter. We have only one iAd object, so it has to be that one.
     
     [self _sendAdToCurrentViewController];
@@ -110,7 +115,7 @@
 {
     // Error, or just no ad content currently available
     
-    //LogTrace(@"%@", @"AppDelegate notified: AD EVENT banner error: %@", error);
+    if (LOG) NSLog(@"CLiAdManager - iAd didFailToReceiveAdWithError: %@", error);
     [self _sendAdToCurrentViewController];  // Will detect that ad banner not loaded and hide it
 }
 
@@ -120,18 +125,10 @@
 
 
 - (void) navigationController:(UINavigationController *)navigationController
-        didShowViewController:(UIViewController *)viewController
-                     animated:(BOOL)animated
-{
-    //LogTrace(@"%@", @"AppDelegate notified: did show controller: %@", viewController);
-    [self _sendAdToCurrentViewController];
-}
-
-- (void) navigationController:(UINavigationController *)navigationController
        willShowViewController:(UIViewController *)viewController
                      animated:(BOOL)animated
 {
-    //LogTrace(@"%@", @"AppDelegate notified: will show controller: %@", viewController);
+    if (LOG) NSLog(@"CLiAdManager - notified: will show controller: %@", viewController);
     
     // Remove adBannerView from existing presentation before trying to show it in a new one
     if (self.lastShownViewController && self.lastShownViewController != viewController) {
@@ -139,6 +136,15 @@
     }
     self.lastShownViewController = viewController;
 }
+
+- (void) navigationController:(UINavigationController *)navigationController
+        didShowViewController:(UIViewController *)viewController
+                     animated:(BOOL)animated
+{
+    if (LOG) NSLog(@"CLiAdManager - notified: did show controller: %@", viewController);
+    [self _sendAdToCurrentViewController];
+}
+
 
 
 
@@ -149,9 +155,10 @@
 {
     // Send ad to controller if valid, otherwise if current ad not valid tell controller to hide it.
     
-    //LogTrace(@"%@", @"AppDelegate: _sendAdToCurrentViewController");
     if (self.lastShownViewController) {
         
+        if (LOG) NSLog(@"CLiAdManager - _sendAdToCurrentViewController: %@", self.lastShownViewController);
+    
         if ([self.lastShownViewController conformsToProtocol:@protocol(iAdDisplayer)]) {
             
             id<iAdDisplayer> displayController = (id<iAdDisplayer>)self.lastShownViewController;
@@ -171,7 +178,8 @@
 {
     // Tell controler to hide ad (regardless of ad state)
     
-    //LogTrace(@"%@", @"AppDelegate: _hideAdInViewController: %@", viewController);
+    if (LOG) NSLog(@"CLiAdManager - _hideAdInViewController: %@", viewController);
+    
     if ([viewController conformsToProtocol:@protocol(iAdDisplayer)]) {
         id<iAdDisplayer> displayController = (id<iAdDisplayer>)viewController;
         [displayController hideAd:self.adBannerView];
