@@ -3,8 +3,9 @@
 //  CodexLib iAdManager
 //
 //  Created by 7thCodex Software (William Patterson) on 1/15/13.
-//  Copyright: open source, freely usable for any purpose.
-//  GitHub: FIXME
+//  Copyright: open source, freely usable for any purpose provided you retain this header
+//             and distribute license file with source.
+//  GitHub: https://github.com/billpatterson/Codex-iAdManager
 //
 
 
