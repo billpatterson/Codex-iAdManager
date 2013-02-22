@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="7UL-hO-5j2">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+    </dependencies>
+    <scenes>
+        <!--Nav Push View Controller-->
+        <scene sceneID="JBs-OV-U4E">
+            <objects>
+                <viewController id="2IC-qt-BPg" customClass="NavPushViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WKN-N7-MpY">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="This is the canvas under where the ads will be displayed." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="7uZ-QW-WbR">
+                                <color key="backgroundColor" red="0.047125373361995626" green="1" blue="0.28630317400183825" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" type="user" id="hsG-DL-owK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="View Controller 2" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="261" translatesAutoresizingMaskIntoConstraints="NO" id="BdT-qm-s8p">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="icy-xW-KXO"/>
+                                    <constraint firstAttribute="width" constant="261" id="t8P-dq-mVC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="This controller shown by UINavigationController via push segue (i.e. not shown modally!)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" translatesAutoresizingMaskIntoConstraints="NO" id="Kkx-zL-G5T">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="B96-uh-iNF"/>
+                                    <constraint firstAttribute="width" constant="270" id="tus-Aa-PY1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Kkx-zL-G5T" firstAttribute="top" secondItem="BdT-qm-s8p" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="2I1-RS-LAY"/>
+                            <constraint firstItem="7uZ-QW-WbR" firstAttribute="leading" secondItem="WKN-N7-MpY" secondAttribute="leading" type="default" id="307-VC-P78"/>
+                            <constraint firstItem="7uZ-QW-WbR" firstAttribute="bottom" secondItem="WKN-N7-MpY" secondAttribute="bottom" type="default" id="A8l-7k-hBt"/>
+                            <constraint firstItem="7uZ-QW-WbR" firstAttribute="trailing" secondItem="WKN-N7-MpY" secondAttribute="trailing" type="default" id="Kh7-PR-2wc"/>
+                            <constraint firstItem="Kkx-zL-G5T" firstAttribute="centerX" secondItem="7uZ-QW-WbR" secondAttribute="centerX" type="default" id="OHb-CM-FCz"/>
+                            <constraint firstItem="Kkx-zL-G5T" firstAttribute="centerX" secondItem="BdT-qm-s8p" secondAttribute="centerX" type="default" id="VpY-hu-IJf"/>
+                            <constraint firstItem="BdT-qm-s8p" firstAttribute="top" secondItem="WKN-N7-MpY" secondAttribute="top" constant="26" id="by4-vp-xsC"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Hky-EF-4bi"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AUQ-Cn-n1o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1166" y="138"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="5">
+            <objects>
+                <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="View Controller 1" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="261" translatesAutoresizingMaskIntoConstraints="NO" id="rl9-VZ-WgL">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="2Bc-Z9-BMF"/>
+                                    <constraint firstAttribute="width" constant="261" id="GAG-iC-G0u"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="This is the canvas under where the ads will be displayed." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="TDa-i6-car">
+                                <color key="backgroundColor" red="1" green="0.9222848039809699" blue="0.0082031500721367889" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" type="user" id="bsU-MN-C7T"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Ad banner will appear a the bottom of this window." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="261" translatesAutoresizingMaskIntoConstraints="NO" id="wHa-oM-ehH">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="ucX-IP-7Xp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rfu-88-vc0">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="&quot;Push&quot; segue to view 2">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="2IC-qt-BPg" kind="push" id="dso-NA-bIj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98j-Yx-kea">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="&quot;Modal&quot; segue to view 3">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="0ik-nd-DlC" kind="modal" id="6Ih-Cb-kZ7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TDa-i6-car" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="0cN-dG-A40"/>
+                            <constraint firstItem="rl9-VZ-WgL" firstAttribute="trailing" secondItem="wHa-oM-ehH" secondAttribute="trailing" type="default" id="8LU-q5-Azj"/>
+                            <constraint firstItem="rl9-VZ-WgL" firstAttribute="top" secondItem="3" secondAttribute="top" constant="27" id="CLE-Yb-xHi"/>
+                            <constraint firstItem="Rfu-88-vc0" firstAttribute="top" relation="greaterThanOrEqual" secondItem="3" secondAttribute="top" constant="190" type="user" id="Fs1-zI-zRf"/>
+                            <constraint firstItem="wHa-oM-ehH" firstAttribute="top" secondItem="3" secondAttribute="top" constant="102" id="ITM-m7-x6H"/>
+                            <constraint firstItem="98j-Yx-kea" firstAttribute="top" secondItem="3" secondAttribute="top" constant="274" type="user" id="JyL-Xb-bCH"/>
+                            <constraint firstItem="rl9-VZ-WgL" firstAttribute="leading" secondItem="wHa-oM-ehH" secondAttribute="leading" type="default" id="OBc-gM-QoO"/>
+                            <constraint firstItem="TDa-i6-car" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="QZs-Vf-WJv"/>
+                            <constraint firstItem="Rfu-88-vc0" firstAttribute="top" secondItem="3" secondAttribute="top" constant="190" id="Z0A-Dj-8Xz"/>
+                            <constraint firstItem="98j-Yx-kea" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="59" id="eVl-h4-qdN"/>
+                            <constraint firstItem="Rfu-88-vc0" firstAttribute="centerX" secondItem="wHa-oM-ehH" secondAttribute="centerX" type="default" id="gVP-nj-jup"/>
+                            <constraint firstItem="TDa-i6-car" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="iFv-bg-1Vc"/>
+                            <constraint firstItem="98j-Yx-kea" firstAttribute="centerX" secondItem="Rfu-88-vc0" secondAttribute="centerX" type="default" id="nlK-Nq-eKe"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="IJ6-Aa-QIL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="699" y="138"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="RPA-6y-j2b">
+            <objects>
+                <navigationController id="7UL-hO-5j2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wfU-hA-qaP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="p62-jA-sho"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NMc-JN-L3v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="179" y="117"/>
+        </scene>
+        <!--Modal View Controller-->
+        <scene sceneID="n4T-Ap-9Bh">
+            <objects>
+                <viewController id="0ik-nd-DlC" customClass="ModalViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qaC-Wx-vQr">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aEV-i5-PjK">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Back to View 1">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissButton:" destination="0ik-nd-DlC" eventType="touchUpInside" id="E4y-FW-ygL"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="This is the canvas under where the ads will be displayed." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="MEK-TO-uYn">
+                                <color key="backgroundColor" red="0.04712537336" green="1" blue="0.28630317399999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" type="user" id="Bah-EA-2g0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="View Controller 3" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="261" translatesAutoresizingMaskIntoConstraints="NO" id="IYd-fY-VED">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="261" id="qLl-lf-Bft"/>
+                                    <constraint firstAttribute="height" constant="36" id="sb3-x0-hrV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="This controller shown indepdendently of UINavigationController via modal segue." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" translatesAutoresizingMaskIntoConstraints="NO" id="xjO-Is-Lav">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="HTs-km-SVT"/>
+                                    <constraint firstAttribute="width" constant="270" id="LIc-ra-lSK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" translatesAutoresizingMaskIntoConstraints="NO" id="5On-Nf-Qwm">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="124" id="AB8-HZ-IIx"/>
+                                </constraints>
+                                <string key="text">Because AdManager is only monitoring ViewController presentations by the UINavigationController, this controller must manually contact AdManager to say "I'm here!" and "I'm going away!"</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xjO-Is-Lav" firstAttribute="centerX" secondItem="IYd-fY-VED" secondAttribute="centerX" type="default" id="0LP-E8-gmA"/>
+                            <constraint firstItem="MEK-TO-uYn" firstAttribute="bottom" secondItem="qaC-Wx-vQr" secondAttribute="bottom" type="default" id="5Vk-AX-BSc"/>
+                            <constraint firstItem="IYd-fY-VED" firstAttribute="top" secondItem="qaC-Wx-vQr" secondAttribute="top" constant="26" id="7du-Dz-n9A"/>
+                            <constraint firstItem="aEV-i5-PjK" firstAttribute="top" secondItem="qaC-Wx-vQr" secondAttribute="top" constant="298" type="user" id="M4t-3O-m82"/>
+                            <constraint firstItem="MEK-TO-uYn" firstAttribute="leading" secondItem="qaC-Wx-vQr" secondAttribute="leading" type="default" id="UEp-7P-nra"/>
+                            <constraint firstItem="xjO-Is-Lav" firstAttribute="centerX" secondItem="aEV-i5-PjK" secondAttribute="centerX" type="default" id="Wiv-KN-1VM"/>
+                            <constraint firstItem="5On-Nf-Qwm" firstAttribute="top" secondItem="xjO-Is-Lav" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="b9j-s3-P6p"/>
+                            <constraint firstItem="MEK-TO-uYn" firstAttribute="trailing" secondItem="qaC-Wx-vQr" secondAttribute="trailing" type="default" id="ebJ-v4-ro9"/>
+                            <constraint firstAttribute="trailing" secondItem="5On-Nf-Qwm" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="qR7-46-Z40"/>
+                            <constraint firstItem="5On-Nf-Qwm" firstAttribute="leading" secondItem="IYd-fY-VED" secondAttribute="leading" type="default" id="rg3-cV-3cj"/>
+                            <constraint firstItem="aEV-i5-PjK" firstAttribute="centerX" secondItem="MEK-TO-uYn" secondAttribute="centerX" type="default" id="yN1-tX-VdP"/>
+                            <constraint firstItem="xjO-Is-Lav" firstAttribute="top" secondItem="IYd-fY-VED" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="zUr-0g-UBh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="buN-y8-44m"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="340-Ec-QSK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1166" y="819"/>
+        </scene>
+    </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

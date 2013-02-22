@@ -16,7 +16,7 @@
  
  IMPORTANT:
  
- This class functions by making itself the delegate of the provided container controller. 
+ This class functions by making itself the delegate of the provided UINavigationController.
  If you need to provide your own functions as delegate, DO NOT USE this class!
 
  */
@@ -29,8 +29,23 @@
     UINavigationControllerDelegate
 >
 
-- (id) initWithNavigationController:(UINavigationController*)controller;
+
++ (CLiAdManager*) sharedManager;
+
+
+- (void) monitorNavigationController:(UINavigationController*) controller;
+
+
+// Make a view controller the temporary target of ads, something outside the
+// normal content view controllers being monitored already.
+- (void) establishTemporaryIndependentTarget:(id<iAdDisplayer>)viewController;
+
+// Go back to sending ads to the view controllers being monitored
+- (void) removeTemporaryIndependentTarget;
+
+
 
 - (void) shutdown;
+
 
 @end
