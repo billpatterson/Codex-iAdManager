@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="This is the canvas under where the ads will be displayed." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="7uZ-QW-WbR">
-                                <color key="backgroundColor" red="0.047125373361995626" green="1" blue="0.28630317400183825" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.38902099596892059" green="0.95574776785714288" blue="0.54700521828099335" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" type="user" id="hsG-DL-owK"/>
                                 </constraints>
@@ -214,7 +214,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="This is the canvas under where the ads will be displayed." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="MEK-TO-uYn">
-                                <color key="backgroundColor" red="0.04712537336" green="1" blue="0.28630317399999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.44580358113681495" green="0.77372264595329698" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" type="user" id="Bah-EA-2g0"/>
                                 </constraints>
@@ -273,27 +273,6 @@
             <point key="canvasLocation" x="1166" y="819"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="ModalViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ModalViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="dismissButton:"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="NavPushViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NavPushViewController.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="actionResumeAdManager:"/>
-                <relationship kind="action" name="actionSuspendAdManager:"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

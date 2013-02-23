@@ -14,7 +14,11 @@
 
 @protocol iAdDisplayer <NSObject>
 
+
 - (void) showAd:(ADBannerView*)adBannerView;
+
+// Implementation note:
+// Hiding an ad that is not currently displayed should be allowed and not cause a crash!
 - (void) hideAd:(ADBannerView*)adBannerView;
 
 @end
