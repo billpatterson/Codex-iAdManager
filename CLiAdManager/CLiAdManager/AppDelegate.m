@@ -35,7 +35,7 @@
     // content view controllers (the targets of "show ad" and "hide ad" messages manager will send).
     UINavigationController* rootNavController = (UINavigationController*) self.window.rootViewController;
 
-    // iAd verison:
+//    // iAd verison:
 //    self.adManager = [[CLiAdManager alloc] init];
     
     // iAd plus AdMob version

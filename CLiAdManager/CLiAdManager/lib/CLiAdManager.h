@@ -12,7 +12,6 @@
 #import <iAd/iAd.h>
 
 
-
 @interface CLiAdManager : NSObject
 <
     ADBannerViewDelegate,
@@ -26,6 +25,8 @@
 // Use this toggle to temporarily suspend display of ads without shutting
 // down completely (suspend = can be resumed without complications or other code)
 @property BOOL adDeliveryIsSuspended;
+
+@property BOOL _debug_simulateNonfunctional_iAd;
 
 
 - (void) monitorNavigationController:(UINavigationController*) controller;
@@ -48,16 +49,14 @@
 - (void) shutdown;
 
 
+
+
 // Subclasses should *replace* this method with their own implementation
 // (subclasses can call [super getCurrentAd] to get current iAd)
-- (UIView*) getCurrentAd;
+- (UIView*) getCurrentValidAd;
 
-
-
-// FIXME: temporary drop here to let subclasses ovrride and call
-//        need to think through better way of making this generic for subclass
-- (void) sendAdToCurrentViewControllerIfAdIsValid;
-- (void) sendAdToCurrentViewController;
-
+// Subclasses can call these to trigger responses to events for their ad types.
+- (void) respondToAdReadyEvent;
+- (void) respondToAdErrorEventFor:(UIView*)failedAdView;
 
 @end

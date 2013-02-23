@@ -59,28 +59,47 @@
 */
 
 
+/* Implement the delegate methods */
+
 - (void) showAd:(UIView *)adBannerView
 {
-    // Note: ad manager will take care of having sent us a "hide ad"
-    // if appropriate, so we don't have to worry about "replacing" an
-    // ad that's already displayed.
+    NSLog(@" **  Altering UI to create space for ad");
     
+    // Note: ad manager will take care of having removed this ad from
+    // anywhere else it was formerly displayed (including here), so we
+    // don't have to worry about "replacing" an ad that's already displayed.
+    
+    [self _displayThisAd:adBannerView];
+}
+
+
+- (void) adWasRemoved
+{
+    NSLog(@" **  Altering UI to remove space for ad");
+    // Here is where you would adjust self.view to remove blank space.
+}
+
+- (void) replaceAdWith:(UIView *)adBannerView
+{
+    NSLog(@" **  Reusing existing space for ad");
+    
+    // Like showAd, but letting us know this is a replacement for ad we've
+    // already shown, not a new one, so no need to alter UI.
+    [self _displayThisAd:adBannerView];
+}
+
+
+- (void) _displayThisAd:(UIView*)adView
+{
     // Position at bottom of view
-    CGRect frame = adBannerView.frame;
+    CGRect frame = adView.frame;
     frame.origin.y = self.view.bounds.size.height - frame.size.height;
     frame.origin.x = 0;
-    adBannerView.frame = frame;
+    adView.frame = frame;
     
     // Show it
-    [self.view addSubview:adBannerView];
+    [self.view addSubview:adView];
 }
 
-
-- (void) hideAd:(UIView *)adBannerView
-{
-    if (adBannerView.superview == self.view) {
-        [adBannerView removeFromSuperview];
-    }
-}
 
 @end

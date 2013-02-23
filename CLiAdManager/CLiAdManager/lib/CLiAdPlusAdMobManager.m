@@ -27,7 +27,7 @@
 
 @interface CLiAdPlusAdMobManager()
 {
-
+    BOOL _debugAdMobTurnedOff;
 }
 
 // Remember/hold the one instance of iAd view:
@@ -47,13 +47,12 @@
 
 
 
-// FIXME: need to get rid of SharedInstance stuff since this has to have a root view controller.
-
 - (id) initWithAdUnitId:(NSString*)adUnitID
      rootViewController:(UIViewController*)rootViewController
 {
     self = [super init];
     if (self) {
+        self.iAdPrimaryAdMobIsFallback = YES;
         self.currentAdIsValid = NO;
         [self createAdMobBannerViewWithRootAdUnitId:adUnitID rootViewController:rootViewController];
     }
@@ -91,18 +90,47 @@
 }
 
 
-- (UIView*) getCurrentAd
+// Override of superclass implementation.
+- (UIView*) getCurrentValidAd
 {
-    if (self.currentAdIsValid) {
-        if (LOG) NSLog(@"CLiAdPlusAdMobManager - current ad not valid, punting to iAd");
-        return self.adMobBannerView;
+    if (self._debug_simulateNonfunctional_AdMob) {
+        if (LOG) NSLog(@"CLiAdPlusAdMobManager - simulating no valid AdMob");
+        return [super getCurrentValidAd];
+    }
+    
+    if (self.iAdPrimaryAdMobIsFallback) {
+        // prioritize iAd in superclass
+        UIView* iAd = [super getCurrentValidAd];
+        if (iAd) {
+            if (LOG) NSLog(@"CLiAdPlusAdMobManager - iAd is valid and prioritized, using it");
+            return iAd;
+        }
+        else {
+            // Fallback to our AdMob object
+            if (LOG) NSLog(@"CLiAdPlusAdMobManager - iAd is invalid, falling back to AdMob");
+            if (self.currentAdIsValid) {
+                if (LOG) NSLog(@"CLiAdPlusAdMobManager - AdMob ad is valid, using it");
+                return self.adMobBannerView;
+            }
+            else {
+                if (LOG) NSLog(@"CLiAdPlusAdMobManager - AdMob ad is not valid, no valid ad found");
+                return nil;
+            }
+        }
     }
     else {
-        if (LOG) NSLog(@"CLiAdPlusAdMobManager - current ad is valid, using it");
-        return [super getCurrentAd];
+        // prioritize our AdMob object
+        if (self.currentAdIsValid) {
+            if (LOG) NSLog(@"CLiAdPlusAdMobManager - AdMob ad is valid and prioritized, using it");
+            return self.adMobBannerView;
+        }
+        else {
+            // Fallback to iAd in superclass
+            if (LOG) NSLog(@"CLiAdPlusAdMobManager - AdMob ad not valid, falling back to iAd");
+            return [super getCurrentValidAd];
+        }
     }
 }
-
 
 
 #pragma mark GADBannerViewDelegate methods
@@ -110,40 +138,57 @@
 
 - (void)adViewDidReceiveAd:(GADBannerView *)view
 {
-    if (LOG) NSLog(@"CLiAdPlusAdMobManager - received AdMob ad");
+    if (LOG) NSLog(@"<AdMob Event> :  adViewDidReceiveAd: %@", view);
+    
+    if (self._debug_simulateNonfunctional_AdMob) {
+        if (LOG) NSLog(@"CLiAdPlusAdMobManager - AdMob turned off, simulating error instead");
+        [self adView:view didFailToReceiveAdWithError:[NSError errorWithDomain:@"Simulate Fail" code:1 userInfo:nil]];
+        return;
+    }
+
     self.currentAdIsValid = YES;
+    [self respondToAdReadyEvent];
 }
 
 - (void)adView:(GADBannerView *)view didFailToReceiveAdWithError:(GADRequestError *)error
 {
-    NSLog(@"CLiAdPlusAdMobManager - Failed to receive AdMob with error: %@", [error localizedFailureReason]);
+    NSLog(@"<AdMob Event> :  didFailToReceiveAdWithError: %@", [error localizedFailureReason]);
     self.currentAdIsValid = NO;
+    [self respondToAdErrorEventFor:view];
 }
 
 
-/* #DEBUG ONLY
-- (void)adViewWillPresentScreen:(GADBannerView *)bannerView
+
+
+#pragma mark - DEBUG Utils
+
+
+// property getter
+- (BOOL) _debug_simulateNonfunctional_AdMob
 {
-     NSLog(@"will Present");
+    return _debugAdMobTurnedOff;
 }
-*/
 
-
-
-// FIXME: override of superclass method that's just dropped here with little planning.
-//        Need to figure out how to handle this. 
-- (void) sendAdToCurrentViewControllerIfAdIsValid
+// property setter
+- (void) set_debug_simulateNonfunctional_AdMob:(BOOL)turnOff
 {
-    if (self.currentAdIsValid) {
-        if (LOG) NSLog(@"CLiAdPlusAdMobManager - sending valid AdMob ad");
-        [self sendAdToCurrentViewController];
+    // Turn off and trigger immediate response
+    if (LOG) NSLog(@"<AdMob Event> :  AdMob disable: %@", turnOff?@"YES":@"NO");
+    _debugAdMobTurnedOff = turnOff;
+    
+    if (turnOff) {
+        // Simulate a just-received-fail message
+        [self respondToAdErrorEventFor:self.adMobBannerView];
     }
     else {
-        if (LOG) NSLog(@"CLiAdPlusAdMobManager - current AdMob ad not valid, punting to iAd in superclass");
-        [super sendAdToCurrentViewController];
+        if (self.adMobBannerView && self.currentAdIsValid) {
+            [self respondToAdReadyEvent];
+        }
+        // else: no ready AdMob ad to display so just resume waiting and processing events
     }
-    
 }
+
+
 
 
 @end

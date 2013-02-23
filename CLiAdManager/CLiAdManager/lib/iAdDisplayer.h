@@ -22,4 +22,6 @@
 // This notification gives you an opportunity to adjust your UI accordingly.
 - (void) adWasRemoved;
 
+- (void) replaceAdWith:(UIView*)adBannerView;
+
 @end

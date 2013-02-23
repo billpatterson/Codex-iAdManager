@@ -15,4 +15,10 @@
 - (id) initWithAdUnitId:(NSString*)adUnitID
      rootViewController:(UIViewController*)rootViewController;
 
+// Normal operation is YES for this.
+// Make AdMob primary and iAd the fallback by setting to NO.
+@property BOOL iAdPrimaryAdMobIsFallback;
+
+@property BOOL _debug_simulateNonfunctional_AdMob;
+
 @end

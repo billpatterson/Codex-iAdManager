@@ -9,7 +9,7 @@
             <objects>
                 <viewController id="2IC-qt-BPg" customClass="NavPushViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WKN-N7-MpY">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="This is the canvas under where the ads will be displayed." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="7uZ-QW-WbR">
@@ -62,7 +62,7 @@
             <objects>
                 <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="View Controller 1" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="261" translatesAutoresizingMaskIntoConstraints="NO" id="rl9-VZ-WgL">
@@ -80,14 +80,6 @@
                                     <constraint firstAttribute="height" constant="60" type="user" id="bsU-MN-C7T"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Ad banner will appear a the bottom of this window." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="261" translatesAutoresizingMaskIntoConstraints="NO" id="wHa-oM-ehH">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="67" id="ucX-IP-7Xp"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -121,6 +113,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HIN-Oh-wXf">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="96" id="ysQ-uV-fuC"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Suspend">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -134,6 +129,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r4c-QM-1ho">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="89" id="rNQ-pf-xdE"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Resume">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -146,26 +144,59 @@
                                     <action selector="actionResumeAdManager:" destination="2" eventType="touchUpInside" id="Qun-sz-e19"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MAP-Ho-FNy">
+                                <color key="onTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="failiAdSwitch:" destination="2" eventType="valueChanged" id="25n-Kx-hKO"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Fail iAd" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6d-vI-37D">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="v4X-u8-ONu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4EN-oQ-ZNg">
+                                <color key="onTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="failAdMobSwitch:" destination="2" eventType="valueChanged" id="5jd-La-NH6"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Fail AdMob" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1m-ej-KqQ">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" type="user" id="WJg-vg-aw9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Rfu-88-vc0" firstAttribute="trailing" secondItem="98j-Yx-kea" secondAttribute="trailing" type="default" id="07S-fJ-TLX"/>
                             <constraint firstItem="TDa-i6-car" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="0cN-dG-A40"/>
-                            <constraint firstItem="rl9-VZ-WgL" firstAttribute="trailing" secondItem="wHa-oM-ehH" secondAttribute="trailing" type="default" id="8LU-q5-Azj"/>
+                            <constraint firstItem="r4c-QM-1ho" firstAttribute="leading" secondItem="HIN-Oh-wXf" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="0k7-kf-0ZN"/>
+                            <constraint firstItem="T6d-vI-37D" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="75" id="6It-17-mil"/>
                             <constraint firstItem="HIN-Oh-wXf" firstAttribute="leading" secondItem="98j-Yx-kea" secondAttribute="leading" type="default" id="9eI-9r-jRa"/>
-                            <constraint firstItem="rl9-VZ-WgL" firstAttribute="top" secondItem="3" secondAttribute="top" constant="27" id="CLE-Yb-xHi"/>
                             <constraint firstItem="98j-Yx-kea" firstAttribute="top" secondItem="Rfu-88-vc0" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="EI7-m6-H3M"/>
-                            <constraint firstItem="Rfu-88-vc0" firstAttribute="top" secondItem="3" secondAttribute="top" constant="151" id="H5P-vR-0dl"/>
-                            <constraint firstItem="rl9-VZ-WgL" firstAttribute="leading" secondItem="wHa-oM-ehH" secondAttribute="leading" type="default" id="OBc-gM-QoO"/>
                             <constraint firstItem="TDa-i6-car" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="QZs-Vf-WJv"/>
                             <constraint firstItem="r4c-QM-1ho" firstAttribute="baseline" secondItem="HIN-Oh-wXf" secondAttribute="baseline" type="user" id="Quz-XE-QpO"/>
-                            <constraint firstItem="wHa-oM-ehH" firstAttribute="top" secondItem="rl9-VZ-WgL" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="YH1-qO-dHm"/>
-                            <constraint firstItem="98j-Yx-kea" firstAttribute="centerX" secondItem="wHa-oM-ehH" secondAttribute="centerX" type="default" id="hLB-bC-Rxf"/>
+                            <constraint firstItem="MAP-Ho-FNy" firstAttribute="top" secondItem="3" secondAttribute="top" constant="240" type="user" id="UKV-ef-ITq"/>
+                            <constraint firstItem="rl9-VZ-WgL" firstAttribute="centerX" secondItem="98j-Yx-kea" secondAttribute="centerX" type="default" id="Xoh-TM-je7"/>
+                            <constraint firstItem="Rfu-88-vc0" firstAttribute="top" secondItem="3" secondAttribute="top" constant="72" id="dHW-GT-CMG"/>
+                            <constraint firstItem="98j-Yx-kea" firstAttribute="centerX" secondItem="TDa-i6-car" secondAttribute="centerX" type="default" id="dRO-PW-YEe"/>
+                            <constraint firstItem="M1m-ej-KqQ" firstAttribute="top" secondItem="3" secondAttribute="top" constant="277" type="user" id="eMk-qv-7C2"/>
                             <constraint firstItem="TDa-i6-car" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="iFv-bg-1Vc"/>
-                            <constraint firstItem="r4c-QM-1ho" firstAttribute="top" secondItem="3" secondAttribute="top" constant="273" type="user" id="kpt-gh-qTs"/>
-                            <constraint firstItem="HIN-Oh-wXf" firstAttribute="top" secondItem="3" secondAttribute="top" constant="273" type="user" id="rg1-iX-LRa"/>
-                            <constraint firstAttribute="trailing" secondItem="r4c-QM-1ho" secondAttribute="trailing" constant="68" id="s1g-uR-7Hv"/>
-                            <constraint firstItem="rl9-VZ-WgL" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="27" id="tQe-PQ-L9U"/>
+                            <constraint firstItem="rl9-VZ-WgL" firstAttribute="top" secondItem="3" secondAttribute="top" constant="13" id="jpW-jf-vO6"/>
+                            <constraint firstItem="HIN-Oh-wXf" firstAttribute="top" secondItem="3" secondAttribute="top" constant="182" id="npi-1d-TqF"/>
+                            <constraint firstItem="M1m-ej-KqQ" firstAttribute="leading" secondItem="T6d-vI-37D" secondAttribute="leading" type="default" id="pbg-3D-pqv"/>
+                            <constraint firstItem="4EN-oQ-ZNg" firstAttribute="top" secondItem="3" secondAttribute="top" constant="278" type="user" id="prp-fQ-Cpd"/>
+                            <constraint firstItem="4EN-oQ-ZNg" firstAttribute="leading" secondItem="MAP-Ho-FNy" secondAttribute="leading" type="default" id="tcu-le-TCU"/>
+                            <constraint firstItem="MAP-Ho-FNy" firstAttribute="centerX" secondItem="r4c-QM-1ho" secondAttribute="centerX" type="default" id="x7Z-c3-E1x"/>
+                            <constraint firstItem="M1m-ej-KqQ" firstAttribute="trailing" secondItem="T6d-vI-37D" secondAttribute="trailing" type="default" id="xu7-mo-10W"/>
+                            <constraint firstItem="M1m-ej-KqQ" firstAttribute="top" secondItem="T6d-vI-37D" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="zt8-XB-fe1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IJ6-Aa-QIL"/>
@@ -197,7 +228,7 @@
             <objects>
                 <viewController id="0ik-nd-DlC" customClass="ModalViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qaC-Wx-vQr">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aEV-i5-PjK">
@@ -240,7 +271,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="270" translatesAutoresizingMaskIntoConstraints="NO" id="5On-Nf-Qwm">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="271" translatesAutoresizingMaskIntoConstraints="NO" id="5On-Nf-Qwm">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="124" id="AB8-HZ-IIx"/>
                                 </constraints>
@@ -273,9 +304,32 @@
             <point key="canvasLocation" x="1166" y="819"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="ModalViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ModalViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissButton:"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="NavPushViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NavPushViewController.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="actionResumeAdManager:"/>
+                <relationship kind="action" name="actionSuspendAdManager:"/>
+                <relationship kind="action" name="failAdMobSwitch:" candidateClass="UISwitch"/>
+                <relationship kind="action" name="failiAdSwitch:" candidateClass="UISwitch"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
 </document>
