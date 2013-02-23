@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "CLiAdManager.h"
+#import "AppDelegate.h"
 
 
 @interface ViewController ()
@@ -39,7 +40,7 @@
 
 /* Implement the two delegate methods */
 
-- (void) showAd:(ADBannerView *)adBannerView
+- (void) showAd:(UIView *)adBannerView
 {
     // Note: ad manager will take care of having sent us a "hide ad"
     // if appropriate, so we don't have to worry about "replacing" an
@@ -56,7 +57,7 @@
 }
 
 
-- (void) hideAd:(ADBannerView *)adBannerView
+- (void) hideAd:(UIView *)adBannerView
 {
     if (adBannerView.superview == self.view) {
         [adBannerView removeFromSuperview];
@@ -71,11 +72,11 @@
 
 - (IBAction)actionSuspendAdManager:(id)sender
 {
-    [[CLiAdManager sharedManager] setAdDeliveryIsSuspended:YES];
+    [[AppDelegate instance].adManager setAdDeliveryIsSuspended:YES];
 }
 - (IBAction)actionResumeAdManager:(id)sender
 {
-    [[CLiAdManager sharedManager] setAdDeliveryIsSuspended:NO];
+    [[AppDelegate instance].adManager setAdDeliveryIsSuspended:NO];
 }
 
 

@@ -8,14 +8,25 @@
 
 #import "AppDelegate.h"
 #import "CLiAdManager.h"
+#import "CLiAdPlusAdMobManager.h"
 
 
 @interface AppDelegate()
-@property (nonatomic, strong) CLiAdManager* adManager;
+
 @end
 
 
 @implementation AppDelegate
+
+
+
+// Convenience method for rest of app to get a reference to this object already cast to
+// exact type so properties are directly accessible. 
++ (AppDelegate*)instance
+{
+    return (AppDelegate*) [UIApplication sharedApplication].delegate;
+}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -23,8 +34,15 @@
     // Create and connect to navigation controller so it can monitor presenting and hiding of
     // content view controllers (the targets of "show ad" and "hide ad" messages manager will send).
     UINavigationController* rootNavController = (UINavigationController*) self.window.rootViewController;
+
+    // iAd verison:
+//    self.adManager = [[CLiAdManager alloc] init];
     
-    [[CLiAdManager sharedManager] monitorNavigationController:rootNavController];
+    // iAd plus AdMob version
+    self.adManager = [[CLiAdPlusAdMobManager alloc] initWithAdUnitId:@"a15077862002f3d"
+                                                  rootViewController:rootNavController];
+    
+    [self.adManager monitorNavigationController:rootNavController];
     
     return YES;
 }

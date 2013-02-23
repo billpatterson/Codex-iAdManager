@@ -8,6 +8,8 @@
 
 #import "ModalViewController.h"
 #import "CLiAdManager.h"
+#import "AppDelegate.h"
+
 
 
 @interface ModalViewController ()
@@ -35,12 +37,12 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    [[CLiAdManager sharedManager] setOverrideTargetForAds:self];
+    [[AppDelegate instance].adManager setOverrideTargetForAds:self];
 }
 
 - (void) viewWillDisappear:(BOOL)animated
 {
-    [[CLiAdManager sharedManager] removeOverrideTargetForAds];
+    [[AppDelegate instance].adManager removeOverrideTargetForAds];
 }
 
 
@@ -57,7 +59,7 @@
 */
 
 
-- (void) showAd:(ADBannerView *)adBannerView
+- (void) showAd:(UIView *)adBannerView
 {
     // Note: ad manager will take care of having sent us a "hide ad"
     // if appropriate, so we don't have to worry about "replacing" an
@@ -74,7 +76,7 @@
 }
 
 
-- (void) hideAd:(ADBannerView *)adBannerView
+- (void) hideAd:(UIView *)adBannerView
 {
     if (adBannerView.superview == self.view) {
         [adBannerView removeFromSuperview];

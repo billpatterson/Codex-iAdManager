@@ -9,16 +9,17 @@
 //  adopt this protocol and implement both methods.
 
 #import <Foundation/Foundation.h>
-#import <iAd/iAd.h>
 
 
 @protocol iAdDisplayer <NSObject>
 
 
-- (void) showAd:(ADBannerView*)adBannerView;
+// This ad is ready for display, and should be added to a superview.
+- (void) showAd:(UIView*)adBannerView;
 
-// Implementation note:
-// Hiding an ad that is not currently displayed should be allowed and not cause a crash!
-- (void) hideAd:(ADBannerView*)adBannerView;
+// Notification that ad was removed from superview (most likely because
+// another ViewController was presented and ad was added to another view there).
+// This notification gives you an opportunity to adjust your UI accordingly.
+- (void) adWasRemoved;
 
 @end

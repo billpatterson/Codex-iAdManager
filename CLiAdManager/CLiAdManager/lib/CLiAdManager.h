@@ -8,8 +8,7 @@
 //  GitHub: https://github.com/billpatterson/Codex-iAdManager
 //
 
-#import <Foundation/Foundation.h>
-#import "iAdDisplayer.h"  // Protocol definition
+#import "iAdDisplayer.h"  // Protocol definition adopted by ad targets
 #import <iAd/iAd.h>
 
 
@@ -21,13 +20,13 @@
     UITabBarControllerDelegate
 >
 
-
-+ (CLiAdManager*) sharedManager;
+// Use normal [... init] to initialize.
 
 
 // Use this toggle to temporarily suspend display of ads without shutting
 // down completely (suspend = can be resumed without complications or other code)
 @property BOOL adDeliveryIsSuspended;
+
 
 - (void) monitorNavigationController:(UINavigationController*) controller;
 - (void) monitorTabBarController:(UITabBarController*) controller;
@@ -44,7 +43,21 @@
 - (void) removeOverrideTargetForAds;
 
 
+
+// Subclasses should extend this method with additions and call [super shutdown]:
 - (void) shutdown;
+
+
+// Subclasses should *replace* this method with their own implementation
+// (subclasses can call [super getCurrentAd] to get current iAd)
+- (UIView*) getCurrentAd;
+
+
+
+// FIXME: temporary drop here to let subclasses ovrride and call
+//        need to think through better way of making this generic for subclass
+- (void) sendAdToCurrentViewControllerIfAdIsValid;
+- (void) sendAdToCurrentViewController;
 
 
 @end

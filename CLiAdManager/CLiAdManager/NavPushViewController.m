@@ -25,7 +25,7 @@
 */
 
 
-- (void) showAd:(ADBannerView *)adBannerView
+- (void) showAd:(UIView *)adBannerView
 {
     // Note: ad manager will take care of having sent us a "hide ad"
     // if appropriate, so we don't have to worry about "replacing" an
@@ -42,7 +42,7 @@
 }
 
 
-- (void) hideAd:(ADBannerView *)adBannerView
+- (void) hideAd:(UIView *)adBannerView
 {
     if (adBannerView.superview == self.view) {
         [adBannerView removeFromSuperview];

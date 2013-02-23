@@ -23,6 +23,12 @@
 		A917E83516D80824001ABD10 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A917E83416D80824001ABD10 /* iAd.framework */; };
 		A917E83816D80CE2001ABD10 /* NavPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A917E83716D80CE2001ABD10 /* NavPushViewController.m */; };
 		A91B3F4316D81982000E9793 /* ModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91B3F4216D81982000E9793 /* ModalViewController.m */; };
+		A9646CB316D87F2700BE653F /* CLiAdPlusAdMobManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A9646CB216D87F2700BE653F /* CLiAdPlusAdMobManager.m */; };
+		A9646CBF16D8829500BE653F /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9646CBE16D8829500BE653F /* libGoogleAdMobAds.a */; };
+		A9646CC116D8836C00BE653F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9646CC016D8836C00BE653F /* AudioToolbox.framework */; };
+		A9646CC316D8839000BE653F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9646CC216D8839000BE653F /* MessageUI.framework */; };
+		A9646CC516D883B200BE653F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9646CC416D883B200BE653F /* SystemConfiguration.framework */; };
+		A9646CC716D88BB900BE653F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9646CC616D88BB900BE653F /* AdSupport.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +57,22 @@
 		A917E83716D80CE2001ABD10 /* NavPushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavPushViewController.m; sourceTree = "<group>"; };
 		A91B3F4116D81982000E9793 /* ModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalViewController.h; sourceTree = "<group>"; };
 		A91B3F4216D81982000E9793 /* ModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalViewController.m; sourceTree = "<group>"; };
+		A9646CB116D87F2700BE653F /* CLiAdPlusAdMobManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLiAdPlusAdMobManager.h; sourceTree = "<group>"; };
+		A9646CB216D87F2700BE653F /* CLiAdPlusAdMobManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLiAdPlusAdMobManager.m; sourceTree = "<group>"; };
+		A9646CB516D8829500BE653F /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
+		A9646CB616D8829500BE653F /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
+		A9646CB716D8829500BE653F /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
+		A9646CB816D8829500BE653F /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerView.h; sourceTree = "<group>"; };
+		A9646CB916D8829500BE653F /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerViewDelegate.h; sourceTree = "<group>"; };
+		A9646CBA16D8829500BE653F /* GADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitial.h; sourceTree = "<group>"; };
+		A9646CBB16D8829500BE653F /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitialDelegate.h; sourceTree = "<group>"; };
+		A9646CBC16D8829500BE653F /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequest.h; sourceTree = "<group>"; };
+		A9646CBD16D8829500BE653F /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
+		A9646CBE16D8829500BE653F /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
+		A9646CC016D8836C00BE653F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A9646CC216D8839000BE653F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		A9646CC416D883B200BE653F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A9646CC616D88BB900BE653F /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +80,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9646CC716D88BB900BE653F /* AdSupport.framework in Frameworks */,
+				A9646CC516D883B200BE653F /* SystemConfiguration.framework in Frameworks */,
+				A9646CC316D8839000BE653F /* MessageUI.framework in Frameworks */,
+				A9646CC116D8836C00BE653F /* AudioToolbox.framework in Frameworks */,
 				A917E83516D80824001ABD10 /* iAd.framework in Frameworks */,
 				A917E80B16D802E0001ABD10 /* UIKit.framework in Frameworks */,
 				A917E80D16D802E0001ABD10 /* Foundation.framework in Frameworks */,
 				A917E80F16D802E0001ABD10 /* CoreGraphics.framework in Frameworks */,
+				A9646CBF16D8829500BE653F /* libGoogleAdMobAds.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +98,10 @@
 		A917E7FE16D802E0001ABD10 = {
 			isa = PBXGroup;
 			children = (
+				A9646CC616D88BB900BE653F /* AdSupport.framework */,
+				A9646CC416D883B200BE653F /* SystemConfiguration.framework */,
+				A9646CC216D8839000BE653F /* MessageUI.framework */,
+				A9646CC016D8836C00BE653F /* AudioToolbox.framework */,
 				A917E83416D80824001ABD10 /* iAd.framework */,
 				A917E81016D802E0001ABD10 /* CLiAdManager */,
 				A917E80916D802E0001ABD10 /* Frameworks */,
@@ -99,6 +130,7 @@
 		A917E81016D802E0001ABD10 /* CLiAdManager */ = {
 			isa = PBXGroup;
 			children = (
+				A9646CB416D8829500BE653F /* AdMob */,
 				A917E82D16D8033E001ABD10 /* lib */,
 				A917E81916D802E0001ABD10 /* AppDelegate.h */,
 				A917E81A16D802E0001ABD10 /* AppDelegate.m */,
@@ -135,8 +167,27 @@
 				A917E82F16D8033E001ABD10 /* CLiAdManager.m */,
 				A917E83016D8033E001ABD10 /* iAdDisplayer.h */,
 				A917E83116D8033E001ABD10 /* LICENSE */,
+				A9646CB116D87F2700BE653F /* CLiAdPlusAdMobManager.h */,
+				A9646CB216D87F2700BE653F /* CLiAdPlusAdMobManager.m */,
 			);
 			path = lib;
+			sourceTree = "<group>";
+		};
+		A9646CB416D8829500BE653F /* AdMob */ = {
+			isa = PBXGroup;
+			children = (
+				A9646CB516D8829500BE653F /* GADAdMobExtras.h */,
+				A9646CB616D8829500BE653F /* GADAdNetworkExtras.h */,
+				A9646CB716D8829500BE653F /* GADAdSize.h */,
+				A9646CB816D8829500BE653F /* GADBannerView.h */,
+				A9646CB916D8829500BE653F /* GADBannerViewDelegate.h */,
+				A9646CBA16D8829500BE653F /* GADInterstitial.h */,
+				A9646CBB16D8829500BE653F /* GADInterstitialDelegate.h */,
+				A9646CBC16D8829500BE653F /* GADRequest.h */,
+				A9646CBD16D8829500BE653F /* GADRequestError.h */,
+				A9646CBE16D8829500BE653F /* libGoogleAdMobAds.a */,
+			);
+			path = AdMob;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +263,7 @@
 				A917E83216D8033E001ABD10 /* CLiAdManager.m in Sources */,
 				A917E83816D80CE2001ABD10 /* NavPushViewController.m in Sources */,
 				A91B3F4316D81982000E9793 /* ModalViewController.m in Sources */,
+				A9646CB316D87F2700BE653F /* CLiAdPlusAdMobManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +316,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -288,6 +341,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -299,6 +353,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CLiAdManager/CLiAdManager-Prefix.pch";
 				INFOPLIST_FILE = "CLiAdManager/CLiAdManager-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/CLiAdManager/AdMob\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -310,6 +368,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CLiAdManager/CLiAdManager-Prefix.pch";
 				INFOPLIST_FILE = "CLiAdManager/CLiAdManager-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/CLiAdManager/AdMob\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

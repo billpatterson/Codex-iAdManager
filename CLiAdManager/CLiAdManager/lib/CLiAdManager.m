@@ -41,10 +41,6 @@
 
 
 
-// The one instance:
-static CLiAdManager* _singletonCLiAdManagerInstance;
-
-
 
 @interface CLiAdManager()
 {
@@ -52,7 +48,7 @@ static CLiAdManager* _singletonCLiAdManagerInstance;
 }
 
 // Remember/hold the one instance of iAd view:
-@property (nonatomic, strong) ADBannerView *adBannerView;
+@property (nonatomic, strong) ADBannerView *iAdBannerView;
 
 
 // Track the currently-up controller, so we can tell it to remove iAd when
@@ -85,19 +81,11 @@ static CLiAdManager* _singletonCLiAdManagerInstance;
 @implementation CLiAdManager
 
 
-+ (CLiAdManager*) sharedManager
-{
-    if (!_singletonCLiAdManagerInstance)
-        _singletonCLiAdManagerInstance = [[CLiAdManager alloc] init];
-    return _singletonCLiAdManagerInstance;
-}
-
-
 - (id) init
 {
     self = [super init];
     if (self) {
-        [self createAdBannerView];
+        [self createiAdBannerView];
         self.containerControllersBeingMonitored = [NSMutableArray array];
     }
     return self;
@@ -113,7 +101,7 @@ static CLiAdManager* _singletonCLiAdManagerInstance;
     self.containerControllersBeingMonitored = nil;
     self.lastShownViewController = nil;
     self.temporaryOverrideTarget = nil;
-    self.adBannerView = nil;
+    self.iAdBannerView = nil;
 }
 
 
@@ -127,13 +115,13 @@ static CLiAdManager* _singletonCLiAdManagerInstance;
 {
     if (toSuspended && !_adDeliveryIsSuspended) {
         // Suspend: remove any shown ads
-        [self _hideAdInCurrentViewController];
+        [self hideAdInCurrentViewController];
         _adDeliveryIsSuspended = toSuspended;
     }
     if (!toSuspended && _adDeliveryIsSuspended) {
         // Resume: show add in current controller
         _adDeliveryIsSuspended = toSuspended;
-        [self _sendAdToCurrentViewController];
+        [self sendAdToCurrentViewController];
     }
 }
 
@@ -195,7 +183,7 @@ static CLiAdManager* _singletonCLiAdManagerInstance;
     if (LOG) NSLog(@"CLiAdManager - notified: will show controller: %@", viewController);
     
     // Remove adBannerView from existing presentation before trying to show it in a new one
-    [self _hideAdInCurrentViewController];
+    [self hideAdInCurrentViewController];
 }
 
 
@@ -206,7 +194,7 @@ static CLiAdManager* _singletonCLiAdManagerInstance;
     if (LOG) NSLog(@"CLiAdManager - notified: did show controller: %@", viewController);
     
     self.lastShownViewController = viewController;
-    [self sendiAdToCurrentViewControllerIfAdIsValid];
+    [self sendAdToCurrentViewControllerIfAdIsValid];
 }
 
 
@@ -218,9 +206,9 @@ static CLiAdManager* _singletonCLiAdManagerInstance;
     if (LOG) NSLog(@"CLiAdManager - notified: tab bar showing controller: %@", viewController);
     
     // Remove adBannerView from existing presentation before trying to show it in a new one
-    [self _hideAdInCurrentViewController];
+    [self hideAdInCurrentViewController];
     self.lastShownViewController = viewController;
-    [self sendiAdToCurrentViewControllerIfAdIsValid];
+    [self sendAdToCurrentViewControllerIfAdIsValid];
 }
 
 
@@ -232,14 +220,14 @@ static CLiAdManager* _singletonCLiAdManagerInstance;
 {
     if (LOG) NSLog(@"CLiAdManager - establishing target override: %@", viewController);
     self.temporaryOverrideTarget = viewController;
-    [self sendiAdToCurrentViewControllerIfAdIsValid];
+    [self sendAdToCurrentViewControllerIfAdIsValid];
 }
 
 - (void) removeOverrideTargetForAds
 {
     if (LOG) NSLog(@"CLiAdManager - removing target override: %@", self.temporaryOverrideTarget);
     self.temporaryOverrideTarget = nil;
-    [self sendiAdToCurrentViewControllerIfAdIsValid];
+    [self sendAdToCurrentViewControllerIfAdIsValid];
 }
 
 
@@ -248,28 +236,42 @@ static CLiAdManager* _singletonCLiAdManagerInstance;
 
 
 // Instantiate the reusable iAdBannerView and set this object as its delegate
-- (void) createAdBannerView
+- (void) createiAdBannerView
 {
-    if (LOG) NSLog(@"CLiAdManager - iAd initializing, creating AdBannderView");
+    if (LOG) NSLog(@"CLiAdManager - icreateiAdBannerView: creating AdBannderView");
     // On iOS 6 ADBannerView introduces a new initializer, use it when available.
     if ([ADBannerView instancesRespondToSelector:@selector(initWithAdType:)]) {
-        self.adBannerView = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
+        self.iAdBannerView = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
     }
     else {
-        self.adBannerView = [[ADBannerView alloc] init];
+        self.iAdBannerView = [[ADBannerView alloc] init];
     }
     
     // Note: as of iOS 6, doing anything specify size of ads is deprecated, handled internally by iAd.
     //       thus, we have no configuration to do on our ad objct.
     
-    if (LOG) NSLog(@"CLiAdManager - created iAd AdBannderView: %@", self.adBannerView);
+    if (LOG) NSLog(@"CLiAdManager - icreateiAdBannerView: result = %@", self.iAdBannerView);
     
-    self.adBannerView.delegate = self;
+    self.iAdBannerView.delegate = self;
 }
 
 
 
-#pragma mark ADBannerView delegate calls
+- (UIView*) getCurrentValidAd
+{
+    // In this class, we know only about iAd so return that:
+    if (self.iAdBannerView && self.iAdBannerView.bannerLoaded) {
+        return self.iAdBannerView;
+    }
+    return nil;
+    
+    // Subclasses may add additional networks, etc, so will have to make their own decisions
+    // about what counts as "the current ad"
+}
+
+
+
+#pragma mark ADBannerView methods
 
 
 - (void) bannerViewWillLoadAd:(ADBannerView *)banner
@@ -281,16 +283,17 @@ static CLiAdManager* _singletonCLiAdManagerInstance;
 
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner
 {
+    // A valid ad has been loaded.
     // Ignore parameter. We have only one iAd object, so it has to be that one.
     if (LOG) NSLog(@"CLiAdManager - bannerViewDidLoadAd: %@", banner);
-    [self _sendAdToCurrentViewController];
+    [self sendAdToCurrentViewController];
 }
 
 - (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
 {
     // Error, or just no ad content currently available
     if (LOG) NSLog(@"CLiAdManager - iAd didFailToReceiveAdWithError: %@", error);
-    [self _hideAdInCurrentViewController];
+    [self hideAdInCurrentViewController];
 }
 
 /* For documentation purposes: it *is* possible to get "error" when nothing's actually wrong:
@@ -312,67 +315,61 @@ static CLiAdManager* _singletonCLiAdManagerInstance;
 
 
 
-#pragma mark - Send iAd To Controllers
+#pragma mark - Send iAd To Controllers 
 
 
-// Send only if ad is valid and user isn't interacting with an existing ad.
-// Otherwise, do nothing.
-// Intended to "send" add to a new view controller when we are uncertain as to whether
-//   or not the ad we have right now is valid (avoiding repeating this logic in every
-//   possible path for us to be notified that a new veiw controller is presenting)
-- (void) sendiAdToCurrentViewControllerIfAdIsValid
-{
-    if (self.adBannerView.bannerLoaded && !self.adBannerView.bannerViewActionInProgress) {
-        if (LOG) NSLog(@"CLiAdManager - will send ad to this controller");
-        [self _sendAdToCurrentViewController];
-    }
-    else {
-        if (LOG) NSLog(@"CLiAdManager - skipping sending invalid ad to this controller");
-    }
-}
-
-
-// Only called when there is a valid ad to display.
-- (void) _sendAdToCurrentViewController
+// If we have a valid iAdDisplayer target, send it an ad (if valid)
+- (void) sendAdToCurrentViewController
 {
     if (self.adDeliveryIsSuspended)
         return;
-    
-    // If we have a valid iAdDisplayer target, send it an ad (if valid) or a "hide" mesasge (if ad is not valid).
-    
-    // Determine target:
+
+    // Abort if we don't have a valid ad:
+    UIView* validAd = [self getCurrentAd];
+    if (validAd ==  nil)
+        return;
+        
+    // Abort if no valid target
     id<iAdDisplayer> target = [self _currentValidAdTarget];
     if (!target) {
         if (LOG) NSLog(@"CLiAdManager - no valid target, not sending show ad message");
         return;
     }
+    
+    NSString* adType = NSStringFromClass([validAd class]);
 
-    if (LOG) NSLog(@"CLiAdManager - _sendAdToCurrentViewController: %@", target);
+    if (LOG) NSLog(@"CLiAdManager - _sendAdToCurrentViewController: Ad-type=%@, target=%@", adType, target);
     
     id<iAdDisplayer> displayController = (id<iAdDisplayer>)target;
-    [displayController showAd:self.adBannerView];
+    [displayController showAd:validAd];
 }
 
 
-- (void) _hideAdInCurrentViewController
+- (void) hideAdInCurrentViewController
 {
     if (self.adDeliveryIsSuspended)
         return;
     
     // Tell controler to hide ad (regardless of ad state)
     
-    // Determine target:
+    // Abort if no valid target
     id<iAdDisplayer> target = [self _currentValidAdTarget];
     if (!target) {
         if (LOG) NSLog(@"CLiAdManager - no valid target, not sending hide ad message");
         return;
     }
 
-    if (LOG) NSLog(@"CLiAdManager - _hideAdInViewController: %@", target);
+    UIView* ad = [self getCurrentAd];
+    
+    NSString* adType = NSStringFromClass([ad class]);
+    
+    if (LOG) NSLog(@"CLiAdManager - _hideAdInViewController: Ad-type=%@, target=%@", adType, target);
     
     id<iAdDisplayer> displayController = (id<iAdDisplayer>)target;
-    [displayController hideAd:self.adBannerView];
+    [displayController hideAd:ad];
 
+    // FIXME: with admob in the mix, do we know that [self getCurrentAd is going to return the thing that was shown? No.
+    //        Going to need to create a "last presented ad" memory.
 }
 
 
