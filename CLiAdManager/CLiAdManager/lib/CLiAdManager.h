@@ -8,7 +8,7 @@
 //  GitHub: https://github.com/billpatterson/Codex-iAdManager
 //
 
-#import "iAdDisplayer.h"  // Protocol definition adopted by ad targets
+#import "CLAdManagerAdDisplayer.h"  // Protocol definition adopted by ad targets
 #import <iAd/iAd.h>
 
 
@@ -38,7 +38,7 @@
 
 // Make a view controller the temporary target of ads, something outside the
 // normal content view controllers being monitored already.
-- (void) setOverrideTargetForAds:(id<iAdDisplayer>)viewController;
+- (void) setOverrideTargetForAds:(id<CLAdManagerAdDisplayer>)viewController;
 
 // Go back to sending ads to the view controllers being monitored
 - (void) removeOverrideTargetForAds;

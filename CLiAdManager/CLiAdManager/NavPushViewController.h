@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "iAdDisplayer.h"
+#import "CLAdManagerAdDisplayer.h"
 
-@interface NavPushViewController : UIViewController <iAdDisplayer>
+@interface NavPushViewController : UIViewController <CLAdManagerAdDisplayer>
 
 @end

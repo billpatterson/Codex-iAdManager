@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "iAdDisplayer.h"
+#import "CLAdManagerAdDisplayer.h"
 
 
-@interface ModalViewController : UIViewController <iAdDisplayer>
+@interface ModalViewController : UIViewController <CLAdManagerAdDisplayer>
 
 @end

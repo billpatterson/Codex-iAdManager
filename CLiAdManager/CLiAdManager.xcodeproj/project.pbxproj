@@ -28,7 +28,7 @@
 		A9646CC116D8836C00BE653F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9646CC016D8836C00BE653F /* AudioToolbox.framework */; };
 		A9646CC316D8839000BE653F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9646CC216D8839000BE653F /* MessageUI.framework */; };
 		A9646CC516D883B200BE653F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9646CC416D883B200BE653F /* SystemConfiguration.framework */; };
-		A9646CC716D88BB900BE653F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9646CC616D88BB900BE653F /* AdSupport.framework */; };
+		A9646CC716D88BB900BE653F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9646CC616D88BB900BE653F /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,7 +50,7 @@
 		A917E82616D802E0001ABD10 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A917E82E16D8033E001ABD10 /* CLiAdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLiAdManager.h; sourceTree = "<group>"; };
 		A917E82F16D8033E001ABD10 /* CLiAdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLiAdManager.m; sourceTree = "<group>"; };
-		A917E83016D8033E001ABD10 /* iAdDisplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iAdDisplayer.h; sourceTree = "<group>"; };
+		A917E83016D8033E001ABD10 /* CLAdManagerAdDisplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLAdManagerAdDisplayer.h; sourceTree = "<group>"; };
 		A917E83116D8033E001ABD10 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		A917E83416D80824001ABD10 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		A917E83616D80CE2001ABD10 /* NavPushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavPushViewController.h; sourceTree = "<group>"; };
@@ -165,7 +165,7 @@
 			children = (
 				A917E82E16D8033E001ABD10 /* CLiAdManager.h */,
 				A917E82F16D8033E001ABD10 /* CLiAdManager.m */,
-				A917E83016D8033E001ABD10 /* iAdDisplayer.h */,
+				A917E83016D8033E001ABD10 /* CLAdManagerAdDisplayer.h */,
 				A917E83116D8033E001ABD10 /* LICENSE */,
 				A9646CB116D87F2700BE653F /* CLiAdPlusAdMobManager.h */,
 				A9646CB216D87F2700BE653F /* CLiAdPlusAdMobManager.m */,
@@ -353,6 +353,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CLiAdManager/CLiAdManager-Prefix.pch";
 				INFOPLIST_FILE = "CLiAdManager/CLiAdManager-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/CLiAdManager/AdMob\"",
@@ -368,6 +369,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CLiAdManager/CLiAdManager-Prefix.pch";
 				INFOPLIST_FILE = "CLiAdManager/CLiAdManager-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/CLiAdManager/AdMob\"",

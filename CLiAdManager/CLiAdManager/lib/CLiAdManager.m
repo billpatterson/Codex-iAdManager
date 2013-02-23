@@ -62,7 +62,7 @@
 
 @property (nonatomic, strong) NSMutableArray* containerControllersBeingMonitored;
 
-@property (nonatomic, weak) id<iAdDisplayer> temporaryOverrideTarget;
+@property (nonatomic, weak) id<CLAdManagerAdDisplayer> temporaryOverrideTarget;
 
 
 // With subclassing, we cannot assume that the ad we sent to a target was the iAd we manage.
@@ -230,7 +230,7 @@
 #pragma mark - "Notifications" from Modal ViewControllers
 
 
-- (void) setOverrideTargetForAds:(id<iAdDisplayer>)viewController
+- (void) setOverrideTargetForAds:(id<CLAdManagerAdDisplayer>)viewController
 {
     if (LOG) NSLog(@"CLiAdManager - establishing target override: %@", viewController);
     
@@ -330,7 +330,7 @@
     }
     
     // Abort if no valid target
-    id<iAdDisplayer> target = [self _currentValidAdTarget];
+    id<CLAdManagerAdDisplayer> target = [self _currentValidAdTarget];
     if (!target) {
         if (LOG) NSLog(@"CLiAdManager - no valid target for ad so aborting send");
         return;
@@ -370,7 +370,7 @@
     [self.mostRecentlySentAdObject removeFromSuperview];  // no effect if nil or not in a superview
     
     // Abort if no valid target
-    id<iAdDisplayer> target = [self _currentValidAdTarget];
+    id<CLAdManagerAdDisplayer> target = [self _currentValidAdTarget];
     if (!target) {
         if (LOG) NSLog(@"CLiAdManager - no valid target, not sending hide ad message");
         return;
@@ -387,7 +387,7 @@
 // currently presented view controller if that controller adopts iAdDisplayer protocol
 // ... or:
 //  nil
-- (id<iAdDisplayer>) _currentValidAdTarget
+- (id<CLAdManagerAdDisplayer>) _currentValidAdTarget
 {
     // Determine target:
     id target = self.temporaryOverrideTarget;
@@ -396,7 +396,7 @@
     }
     
     // If no target or target doesn't conform to protocol, nothing to do:
-    if (!target || ![target conformsToProtocol:@protocol(iAdDisplayer)]) {
+    if (!target || ![target conformsToProtocol:@protocol(CLAdManagerAdDisplayer)]) {
         return nil;
     }
     

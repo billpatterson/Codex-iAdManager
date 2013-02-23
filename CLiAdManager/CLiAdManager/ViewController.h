@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "iAdDisplayer.h"
+#import "CLAdManagerAdDisplayer.h"
 
-@interface ViewController : UIViewController <iAdDisplayer>
+@interface ViewController : UIViewController <CLAdManagerAdDisplayer>
 
 @end
