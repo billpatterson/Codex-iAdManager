@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "CLiAdManager.h"
+
 
 @interface ViewController ()
 
@@ -59,6 +61,21 @@
     if (adBannerView.superview == self.view) {
         [adBannerView removeFromSuperview];
     }
+}
+
+
+
+#pragma mark - Suspend/Resume
+
+// Example to demonstrate effect of suspending CLiAdManger
+
+- (IBAction)actionSuspendAdManager:(id)sender
+{
+    [[CLiAdManager sharedManager] setAdDeliveryIsSuspended:YES];
+}
+- (IBAction)actionResumeAdManager:(id)sender
+{
+    [[CLiAdManager sharedManager] setAdDeliveryIsSuspended:NO];
 }
 
 

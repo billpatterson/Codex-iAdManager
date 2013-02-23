@@ -35,12 +35,12 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    [[CLiAdManager sharedManager] establishTemporaryIndependentTarget:self];
+    [[CLiAdManager sharedManager] setOverrideTargetForAds:self];
 }
 
 - (void) viewWillDisappear:(BOOL)animated
 {
-    [[CLiAdManager sharedManager] removeTemporaryIndependentTarget];
+    [[CLiAdManager sharedManager] removeOverrideTargetForAds];
 }
 
 

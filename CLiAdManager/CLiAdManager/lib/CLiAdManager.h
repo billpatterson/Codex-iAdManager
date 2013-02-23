@@ -12,37 +12,36 @@
 #import "iAdDisplayer.h"  // Protocol definition
 #import <iAd/iAd.h>
 
-/*
- 
- IMPORTANT:
- 
- This class functions by making itself the delegate of the provided UINavigationController.
- If you need to provide your own functions as delegate, DO NOT USE this class!
-
- */
-
 
 
 @interface CLiAdManager : NSObject
 <
     ADBannerViewDelegate,
-    UINavigationControllerDelegate
+    UINavigationControllerDelegate,
+    UITabBarControllerDelegate
 >
 
 
 + (CLiAdManager*) sharedManager;
 
 
+// Use this toggle to temporarily suspend display of ads without shutting
+// down completely (suspend = can be resumed without complications or other code)
+@property BOOL adDeliveryIsSuspended;
+
 - (void) monitorNavigationController:(UINavigationController*) controller;
+- (void) monitorTabBarController:(UITabBarController*) controller;
+
+- (void) stopMonitoringNavigationController:(UINavigationController*) controller;
+- (void) stopMonitoringTabBarController:(UITabBarController*) controller;
 
 
 // Make a view controller the temporary target of ads, something outside the
 // normal content view controllers being monitored already.
-- (void) establishTemporaryIndependentTarget:(id<iAdDisplayer>)viewController;
+- (void) setOverrideTargetForAds:(id<iAdDisplayer>)viewController;
 
 // Go back to sending ads to the view controllers being monitored
-- (void) removeTemporaryIndependentTarget;
-
+- (void) removeOverrideTargetForAds;
 
 
 - (void) shutdown;

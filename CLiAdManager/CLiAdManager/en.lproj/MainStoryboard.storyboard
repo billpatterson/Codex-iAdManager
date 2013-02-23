@@ -92,6 +92,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rfu-88-vc0">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="194" id="7qC-NS-SNe"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="&quot;Push&quot; segue to view 2">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -117,22 +120,52 @@
                                     <segue destination="0ik-nd-DlC" kind="modal" id="6Ih-Cb-kZ7"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HIN-Oh-wXf">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Suspend">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionSuspendAdManager:" destination="2" eventType="touchUpInside" id="3Iu-Yx-gXO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r4c-QM-1ho">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Resume">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionResumeAdManager:" destination="2" eventType="touchUpInside" id="Qun-sz-e19"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Rfu-88-vc0" firstAttribute="trailing" secondItem="98j-Yx-kea" secondAttribute="trailing" type="default" id="07S-fJ-TLX"/>
                             <constraint firstItem="TDa-i6-car" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="0cN-dG-A40"/>
                             <constraint firstItem="rl9-VZ-WgL" firstAttribute="trailing" secondItem="wHa-oM-ehH" secondAttribute="trailing" type="default" id="8LU-q5-Azj"/>
+                            <constraint firstItem="HIN-Oh-wXf" firstAttribute="leading" secondItem="98j-Yx-kea" secondAttribute="leading" type="default" id="9eI-9r-jRa"/>
                             <constraint firstItem="rl9-VZ-WgL" firstAttribute="top" secondItem="3" secondAttribute="top" constant="27" id="CLE-Yb-xHi"/>
-                            <constraint firstItem="Rfu-88-vc0" firstAttribute="top" relation="greaterThanOrEqual" secondItem="3" secondAttribute="top" constant="190" type="user" id="Fs1-zI-zRf"/>
-                            <constraint firstItem="wHa-oM-ehH" firstAttribute="top" secondItem="3" secondAttribute="top" constant="102" id="ITM-m7-x6H"/>
-                            <constraint firstItem="98j-Yx-kea" firstAttribute="top" secondItem="3" secondAttribute="top" constant="274" type="user" id="JyL-Xb-bCH"/>
+                            <constraint firstItem="98j-Yx-kea" firstAttribute="top" secondItem="Rfu-88-vc0" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="EI7-m6-H3M"/>
+                            <constraint firstItem="Rfu-88-vc0" firstAttribute="top" secondItem="3" secondAttribute="top" constant="151" id="H5P-vR-0dl"/>
                             <constraint firstItem="rl9-VZ-WgL" firstAttribute="leading" secondItem="wHa-oM-ehH" secondAttribute="leading" type="default" id="OBc-gM-QoO"/>
                             <constraint firstItem="TDa-i6-car" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="QZs-Vf-WJv"/>
-                            <constraint firstItem="Rfu-88-vc0" firstAttribute="top" secondItem="3" secondAttribute="top" constant="190" id="Z0A-Dj-8Xz"/>
-                            <constraint firstItem="98j-Yx-kea" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="59" id="eVl-h4-qdN"/>
-                            <constraint firstItem="Rfu-88-vc0" firstAttribute="centerX" secondItem="wHa-oM-ehH" secondAttribute="centerX" type="default" id="gVP-nj-jup"/>
+                            <constraint firstItem="r4c-QM-1ho" firstAttribute="baseline" secondItem="HIN-Oh-wXf" secondAttribute="baseline" type="user" id="Quz-XE-QpO"/>
+                            <constraint firstItem="wHa-oM-ehH" firstAttribute="top" secondItem="rl9-VZ-WgL" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="YH1-qO-dHm"/>
+                            <constraint firstItem="98j-Yx-kea" firstAttribute="centerX" secondItem="wHa-oM-ehH" secondAttribute="centerX" type="default" id="hLB-bC-Rxf"/>
                             <constraint firstItem="TDa-i6-car" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="iFv-bg-1Vc"/>
-                            <constraint firstItem="98j-Yx-kea" firstAttribute="centerX" secondItem="Rfu-88-vc0" secondAttribute="centerX" type="default" id="nlK-Nq-eKe"/>
+                            <constraint firstItem="r4c-QM-1ho" firstAttribute="top" secondItem="3" secondAttribute="top" constant="273" type="user" id="kpt-gh-qTs"/>
+                            <constraint firstItem="HIN-Oh-wXf" firstAttribute="top" secondItem="3" secondAttribute="top" constant="273" type="user" id="rg1-iX-LRa"/>
+                            <constraint firstAttribute="trailing" secondItem="r4c-QM-1ho" secondAttribute="trailing" constant="68" id="s1g-uR-7Hv"/>
+                            <constraint firstItem="rl9-VZ-WgL" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="27" id="tQe-PQ-L9U"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IJ6-Aa-QIL"/>
@@ -241,11 +274,24 @@
         </scene>
     </scenes>
     <classes>
+        <class className="ModalViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ModalViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissButton:"/>
+            </relationships>
+        </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
+        <class className="NavPushViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NavPushViewController.h"/>
+        </class>
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="actionResumeAdManager:"/>
+                <relationship kind="action" name="actionSuspendAdManager:"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
