@@ -1,0 +1,343 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A968927916D9C733007FD39E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A968927816D9C733007FD39E /* UIKit.framework */; };
+		A968927B16D9C733007FD39E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A968927A16D9C733007FD39E /* Foundation.framework */; };
+		A968927D16D9C733007FD39E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A968927C16D9C733007FD39E /* CoreGraphics.framework */; };
+		A968928316D9C733007FD39E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A968928116D9C733007FD39E /* InfoPlist.strings */; };
+		A968928516D9C733007FD39E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A968928416D9C733007FD39E /* main.m */; };
+		A968928916D9C733007FD39E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A968928816D9C733007FD39E /* AppDelegate.m */; };
+		A968928B16D9C733007FD39E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A968928A16D9C733007FD39E /* Default.png */; };
+		A968928D16D9C733007FD39E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A968928C16D9C733007FD39E /* Default@2x.png */; };
+		A968928F16D9C733007FD39E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A968928E16D9C733007FD39E /* Default-568h@2x.png */; };
+		A968929216D9C733007FD39E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A968929016D9C733007FD39E /* MainStoryboard.storyboard */; };
+		A968929516D9C733007FD39E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A968929416D9C733007FD39E /* ViewController.m */; };
+		A968929F16D9C79F007FD39E /* ModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A968929C16D9C79F007FD39E /* ModalViewController.m */; };
+		A96892A016D9C79F007FD39E /* NavPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A968929E16D9C79F007FD39E /* NavPushViewController.m */; };
+		A96892A816D9C7B0007FD39E /* CLiAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A96892A416D9C7B0007FD39E /* CLiAdManager.m */; };
+		A96892AA16D9C7B0007FD39E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A96892A716D9C7B0007FD39E /* LICENSE */; };
+		A96892AC16D9C851007FD39E /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96892AB16D9C851007FD39E /* iAd.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A968927516D9C733007FD39E /* CodexAdManager_iAd_example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodexAdManager_iAd_example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A968927816D9C733007FD39E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A968927A16D9C733007FD39E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A968927C16D9C733007FD39E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A968928016D9C733007FD39E /* CodexAdManager_iAd_example-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CodexAdManager_iAd_example-Info.plist"; sourceTree = "<group>"; };
+		A968928216D9C733007FD39E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A968928416D9C733007FD39E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A968928616D9C733007FD39E /* CodexAdManager_iAd_example-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CodexAdManager_iAd_example-Prefix.pch"; sourceTree = "<group>"; };
+		A968928716D9C733007FD39E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A968928816D9C733007FD39E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A968928A16D9C733007FD39E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		A968928C16D9C733007FD39E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		A968928E16D9C733007FD39E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		A968929116D9C733007FD39E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		A968929316D9C733007FD39E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A968929416D9C733007FD39E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A968929B16D9C79F007FD39E /* ModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalViewController.h; sourceTree = "<group>"; };
+		A968929C16D9C79F007FD39E /* ModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalViewController.m; sourceTree = "<group>"; };
+		A968929D16D9C79F007FD39E /* NavPushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavPushViewController.h; sourceTree = "<group>"; };
+		A968929E16D9C79F007FD39E /* NavPushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavPushViewController.m; sourceTree = "<group>"; };
+		A96892A216D9C7B0007FD39E /* CLAdManagerAdDisplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLAdManagerAdDisplayer.h; sourceTree = "<group>"; };
+		A96892A316D9C7B0007FD39E /* CLiAdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLiAdManager.h; sourceTree = "<group>"; };
+		A96892A416D9C7B0007FD39E /* CLiAdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLiAdManager.m; sourceTree = "<group>"; };
+		A96892A716D9C7B0007FD39E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		A96892AB16D9C851007FD39E /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A968927216D9C733007FD39E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A96892AC16D9C851007FD39E /* iAd.framework in Frameworks */,
+				A968927916D9C733007FD39E /* UIKit.framework in Frameworks */,
+				A968927B16D9C733007FD39E /* Foundation.framework in Frameworks */,
+				A968927D16D9C733007FD39E /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A968926C16D9C733007FD39E = {
+			isa = PBXGroup;
+			children = (
+				A96892AB16D9C851007FD39E /* iAd.framework */,
+				A968927E16D9C733007FD39E /* CodexAdManager_iAd_example */,
+				A968927716D9C733007FD39E /* Frameworks */,
+				A968927616D9C733007FD39E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A968927616D9C733007FD39E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A968927516D9C733007FD39E /* CodexAdManager_iAd_example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A968927716D9C733007FD39E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A968927816D9C733007FD39E /* UIKit.framework */,
+				A968927A16D9C733007FD39E /* Foundation.framework */,
+				A968927C16D9C733007FD39E /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A968927E16D9C733007FD39E /* CodexAdManager_iAd_example */ = {
+			isa = PBXGroup;
+			children = (
+				A96892A116D9C7B0007FD39E /* core_files */,
+				A968929B16D9C79F007FD39E /* ModalViewController.h */,
+				A968929C16D9C79F007FD39E /* ModalViewController.m */,
+				A968929D16D9C79F007FD39E /* NavPushViewController.h */,
+				A968929E16D9C79F007FD39E /* NavPushViewController.m */,
+				A968928716D9C733007FD39E /* AppDelegate.h */,
+				A968928816D9C733007FD39E /* AppDelegate.m */,
+				A968929016D9C733007FD39E /* MainStoryboard.storyboard */,
+				A968929316D9C733007FD39E /* ViewController.h */,
+				A968929416D9C733007FD39E /* ViewController.m */,
+				A968927F16D9C733007FD39E /* Supporting Files */,
+			);
+			path = CodexAdManager_iAd_example;
+			sourceTree = "<group>";
+		};
+		A968927F16D9C733007FD39E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A968928016D9C733007FD39E /* CodexAdManager_iAd_example-Info.plist */,
+				A968928116D9C733007FD39E /* InfoPlist.strings */,
+				A968928416D9C733007FD39E /* main.m */,
+				A968928616D9C733007FD39E /* CodexAdManager_iAd_example-Prefix.pch */,
+				A968928A16D9C733007FD39E /* Default.png */,
+				A968928C16D9C733007FD39E /* Default@2x.png */,
+				A968928E16D9C733007FD39E /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A96892A116D9C7B0007FD39E /* core_files */ = {
+			isa = PBXGroup;
+			children = (
+				A96892A216D9C7B0007FD39E /* CLAdManagerAdDisplayer.h */,
+				A96892A316D9C7B0007FD39E /* CLiAdManager.h */,
+				A96892A416D9C7B0007FD39E /* CLiAdManager.m */,
+				A96892A716D9C7B0007FD39E /* LICENSE */,
+			);
+			name = core_files;
+			path = ../../core_files;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A968927416D9C733007FD39E /* CodexAdManager_iAd_example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A968929816D9C733007FD39E /* Build configuration list for PBXNativeTarget "CodexAdManager_iAd_example" */;
+			buildPhases = (
+				A968927116D9C733007FD39E /* Sources */,
+				A968927216D9C733007FD39E /* Frameworks */,
+				A968927316D9C733007FD39E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CodexAdManager_iAd_example;
+			productName = CodexAdManager_iAd_example;
+			productReference = A968927516D9C733007FD39E /* CodexAdManager_iAd_example.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A968926D16D9C733007FD39E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "7th Codex Software";
+			};
+			buildConfigurationList = A968927016D9C733007FD39E /* Build configuration list for PBXProject "CodexAdManager_iAd_example" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A968926C16D9C733007FD39E;
+			productRefGroup = A968927616D9C733007FD39E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A968927416D9C733007FD39E /* CodexAdManager_iAd_example */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A968927316D9C733007FD39E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A968928316D9C733007FD39E /* InfoPlist.strings in Resources */,
+				A968928B16D9C733007FD39E /* Default.png in Resources */,
+				A968928D16D9C733007FD39E /* Default@2x.png in Resources */,
+				A968928F16D9C733007FD39E /* Default-568h@2x.png in Resources */,
+				A968929216D9C733007FD39E /* MainStoryboard.storyboard in Resources */,
+				A96892AA16D9C7B0007FD39E /* LICENSE in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A968927116D9C733007FD39E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A968928516D9C733007FD39E /* main.m in Sources */,
+				A968928916D9C733007FD39E /* AppDelegate.m in Sources */,
+				A968929516D9C733007FD39E /* ViewController.m in Sources */,
+				A968929F16D9C79F007FD39E /* ModalViewController.m in Sources */,
+				A96892A016D9C79F007FD39E /* NavPushViewController.m in Sources */,
+				A96892A816D9C7B0007FD39E /* CLiAdManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A968928116D9C733007FD39E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A968928216D9C733007FD39E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A968929016D9C733007FD39E /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A968929116D9C733007FD39E /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A968929616D9C733007FD39E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A968929716D9C733007FD39E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A968929916D9C733007FD39E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CodexAdManager_iAd_example/CodexAdManager_iAd_example-Prefix.pch";
+				INFOPLIST_FILE = "CodexAdManager_iAd_example/CodexAdManager_iAd_example-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A968929A16D9C733007FD39E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CodexAdManager_iAd_example/CodexAdManager_iAd_example-Prefix.pch";
+				INFOPLIST_FILE = "CodexAdManager_iAd_example/CodexAdManager_iAd_example-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A968927016D9C733007FD39E /* Build configuration list for PBXProject "CodexAdManager_iAd_example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A968929616D9C733007FD39E /* Debug */,
+				A968929716D9C733007FD39E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A968929816D9C733007FD39E /* Build configuration list for PBXNativeTarget "CodexAdManager_iAd_example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A968929916D9C733007FD39E /* Debug */,
+				A968929A16D9C733007FD39E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A968926D16D9C733007FD39E /* Project object */;
+}

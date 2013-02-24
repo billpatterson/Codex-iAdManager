@@ -18,17 +18,17 @@
 		A917E82116D802E0001ABD10 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A917E82016D802E0001ABD10 /* Default-568h@2x.png */; };
 		A917E82416D802E0001ABD10 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A917E82216D802E0001ABD10 /* MainStoryboard.storyboard */; };
 		A917E82716D802E0001ABD10 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A917E82616D802E0001ABD10 /* ViewController.m */; };
-		A917E83216D8033E001ABD10 /* CLiAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A917E82F16D8033E001ABD10 /* CLiAdManager.m */; };
-		A917E83316D8033E001ABD10 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A917E83116D8033E001ABD10 /* LICENSE */; };
 		A917E83516D80824001ABD10 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A917E83416D80824001ABD10 /* iAd.framework */; };
 		A917E83816D80CE2001ABD10 /* NavPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A917E83716D80CE2001ABD10 /* NavPushViewController.m */; };
 		A91B3F4316D81982000E9793 /* ModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91B3F4216D81982000E9793 /* ModalViewController.m */; };
-		A9646CB316D87F2700BE653F /* CLiAdPlusAdMobManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A9646CB216D87F2700BE653F /* CLiAdPlusAdMobManager.m */; };
 		A9646CBF16D8829500BE653F /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9646CBE16D8829500BE653F /* libGoogleAdMobAds.a */; };
 		A9646CC116D8836C00BE653F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9646CC016D8836C00BE653F /* AudioToolbox.framework */; };
 		A9646CC316D8839000BE653F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9646CC216D8839000BE653F /* MessageUI.framework */; };
 		A9646CC516D883B200BE653F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9646CC416D883B200BE653F /* SystemConfiguration.framework */; };
 		A9646CC716D88BB900BE653F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9646CC616D88BB900BE653F /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A968926916D9C585007FD39E /* CLiAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A968926516D9C585007FD39E /* CLiAdManager.m */; };
+		A968926A16D9C585007FD39E /* CLiAdPlusAdMobManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A968926716D9C585007FD39E /* CLiAdPlusAdMobManager.m */; };
+		A968926B16D9C585007FD39E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A968926816D9C585007FD39E /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,17 +48,11 @@
 		A917E82316D802E0001ABD10 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		A917E82516D802E0001ABD10 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		A917E82616D802E0001ABD10 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		A917E82E16D8033E001ABD10 /* CLiAdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLiAdManager.h; sourceTree = "<group>"; };
-		A917E82F16D8033E001ABD10 /* CLiAdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLiAdManager.m; sourceTree = "<group>"; };
-		A917E83016D8033E001ABD10 /* CLAdManagerAdDisplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLAdManagerAdDisplayer.h; sourceTree = "<group>"; };
-		A917E83116D8033E001ABD10 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		A917E83416D80824001ABD10 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		A917E83616D80CE2001ABD10 /* NavPushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavPushViewController.h; sourceTree = "<group>"; };
 		A917E83716D80CE2001ABD10 /* NavPushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavPushViewController.m; sourceTree = "<group>"; };
 		A91B3F4116D81982000E9793 /* ModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModalViewController.h; sourceTree = "<group>"; };
 		A91B3F4216D81982000E9793 /* ModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModalViewController.m; sourceTree = "<group>"; };
-		A9646CB116D87F2700BE653F /* CLiAdPlusAdMobManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLiAdPlusAdMobManager.h; sourceTree = "<group>"; };
-		A9646CB216D87F2700BE653F /* CLiAdPlusAdMobManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLiAdPlusAdMobManager.m; sourceTree = "<group>"; };
 		A9646CB516D8829500BE653F /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
 		A9646CB616D8829500BE653F /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
 		A9646CB716D8829500BE653F /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
@@ -73,6 +67,12 @@
 		A9646CC216D8839000BE653F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		A9646CC416D883B200BE653F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A9646CC616D88BB900BE653F /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		A968926316D9C585007FD39E /* CLAdManagerAdDisplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLAdManagerAdDisplayer.h; sourceTree = "<group>"; };
+		A968926416D9C585007FD39E /* CLiAdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLiAdManager.h; sourceTree = "<group>"; };
+		A968926516D9C585007FD39E /* CLiAdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLiAdManager.m; sourceTree = "<group>"; };
+		A968926616D9C585007FD39E /* CLiAdPlusAdMobManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLiAdPlusAdMobManager.h; sourceTree = "<group>"; };
+		A968926716D9C585007FD39E /* CLiAdPlusAdMobManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLiAdPlusAdMobManager.m; sourceTree = "<group>"; };
+		A968926816D9C585007FD39E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,8 +130,8 @@
 		A917E81016D802E0001ABD10 /* CLiAdManager */ = {
 			isa = PBXGroup;
 			children = (
+				A968926216D9C585007FD39E /* core_files */,
 				A9646CB416D8829500BE653F /* AdMob */,
-				A917E82D16D8033E001ABD10 /* lib */,
 				A917E81916D802E0001ABD10 /* AppDelegate.h */,
 				A917E81A16D802E0001ABD10 /* AppDelegate.m */,
 				A917E82216D802E0001ABD10 /* MainStoryboard.storyboard */,
@@ -160,19 +160,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A917E82D16D8033E001ABD10 /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				A917E82E16D8033E001ABD10 /* CLiAdManager.h */,
-				A917E82F16D8033E001ABD10 /* CLiAdManager.m */,
-				A917E83016D8033E001ABD10 /* CLAdManagerAdDisplayer.h */,
-				A917E83116D8033E001ABD10 /* LICENSE */,
-				A9646CB116D87F2700BE653F /* CLiAdPlusAdMobManager.h */,
-				A9646CB216D87F2700BE653F /* CLiAdPlusAdMobManager.m */,
-			);
-			path = lib;
-			sourceTree = "<group>";
-		};
 		A9646CB416D8829500BE653F /* AdMob */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +175,20 @@
 				A9646CBE16D8829500BE653F /* libGoogleAdMobAds.a */,
 			);
 			path = AdMob;
+			sourceTree = "<group>";
+		};
+		A968926216D9C585007FD39E /* core_files */ = {
+			isa = PBXGroup;
+			children = (
+				A968926316D9C585007FD39E /* CLAdManagerAdDisplayer.h */,
+				A968926416D9C585007FD39E /* CLiAdManager.h */,
+				A968926516D9C585007FD39E /* CLiAdManager.m */,
+				A968926616D9C585007FD39E /* CLiAdPlusAdMobManager.h */,
+				A968926716D9C585007FD39E /* CLiAdPlusAdMobManager.m */,
+				A968926816D9C585007FD39E /* LICENSE */,
+			);
+			name = core_files;
+			path = ../../core_files;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,7 +247,7 @@
 				A917E81F16D802E0001ABD10 /* Default@2x.png in Resources */,
 				A917E82116D802E0001ABD10 /* Default-568h@2x.png in Resources */,
 				A917E82416D802E0001ABD10 /* MainStoryboard.storyboard in Resources */,
-				A917E83316D8033E001ABD10 /* LICENSE in Resources */,
+				A968926B16D9C585007FD39E /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,10 +261,10 @@
 				A917E81716D802E0001ABD10 /* main.m in Sources */,
 				A917E81B16D802E0001ABD10 /* AppDelegate.m in Sources */,
 				A917E82716D802E0001ABD10 /* ViewController.m in Sources */,
-				A917E83216D8033E001ABD10 /* CLiAdManager.m in Sources */,
 				A917E83816D80CE2001ABD10 /* NavPushViewController.m in Sources */,
 				A91B3F4316D81982000E9793 /* ModalViewController.m in Sources */,
-				A9646CB316D87F2700BE653F /* CLiAdPlusAdMobManager.m in Sources */,
+				A968926916D9C585007FD39E /* CLiAdManager.m in Sources */,
+				A968926A16D9C585007FD39E /* CLiAdPlusAdMobManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
