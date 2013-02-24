@@ -10,18 +10,29 @@
 #import "GADBannerView.h"
 
 
-// Extension of superclass that supports Ad Mob
+// Extension of superclass that adds simultaneous connection to AdMob for ads.
+// One network or the other (iAd or AdMob) is designated as "primary" and the
+// other is "fallback." Ads are displayed from the primary network whenever
+// available, and from the fallback network otherwise.
+//
+// Designation of primary/secondary network is done with the property:
+//   iAdPrimaryAdMobIsFallback  : YES = iAd primary,  NO = AdMob primary.
+
 
 // Additions to linking n your project:
 //   https://developers.google.com/mobile-ads-sdk/docs/#incorporating
-//   Critical info: tells you about frameworks you must add, plus the following:
-//     add "-ObjC" to linker flags
+//   Critical info: tells you about frameworks you must add, project settings to change, etc.
 
 
+// Set to YES to enable trace logging of iAd events
+#define LOG_AD_EVENTS YES
 
+// Set to YES to see when we are informed about new ViewControllers being presented
+#define LOG_VIEWCONTROLLERS YES
 
-
-#define LOG YES
+// Set to YES to see extensive logic/flow trace logging
+// You'll likely want to have LOG_AD_EVENTS on to help understand causes for actions.
+#define LOG_TRACE YES
 
 
 
@@ -60,13 +71,6 @@
 }
 
 
-- (void) shutdown
-{
-    self.adMobBannerView = nil;
-    [super shutdown];
-}
-
-
 
 
 #pragma mark ADBannerView setup
@@ -76,13 +80,13 @@
 - (void) createAdMobBannerViewWithRootAdUnitId:(NSString*)adUnitID
                             rootViewController:(UIViewController*)rootViewController;
 {
-    if (LOG) NSLog(@"CLiAdPlusAdMobManager - AdMob initializing, creating GADBannerView");
+    if (LOG_AD_EVENTS) NSLog(@"CLiAdPlusAdMobManager - AdMob initializing, creating GADBannerView");
 
     self.adMobBannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
     self.adMobBannerView.adUnitID = adUnitID;
     self.adMobBannerView.rootViewController = rootViewController;
     
-    if (LOG) NSLog(@"CLiAdPlusAdMobManager - created iAd AdBannderView: %@", self.adMobBannerView);
+    if (LOG_AD_EVENTS) NSLog(@"CLiAdPlusAdMobManager - created iAd AdBannderView: %@", self.adMobBannerView);
     
     // Don't issue request until after setting self as delegate
     self.adMobBannerView.delegate = self;
@@ -90,58 +94,16 @@
 }
 
 
-// Override of superclass implementation.
-- (UIView*) getCurrentValidAd
-{
-    if (self._debug_simulateNonfunctional_AdMob) {
-        if (LOG) NSLog(@"CLiAdPlusAdMobManager - simulating no valid AdMob");
-        return [super getCurrentValidAd];
-    }
-    
-    if (self.iAdPrimaryAdMobIsFallback) {
-        // prioritize iAd in superclass
-        UIView* iAd = [super getCurrentValidAd];
-        if (iAd) {
-            if (LOG) NSLog(@"CLiAdPlusAdMobManager - iAd is valid and prioritized, using it");
-            return iAd;
-        }
-        else {
-            // Fallback to our AdMob object
-            if (LOG) NSLog(@"CLiAdPlusAdMobManager - iAd is invalid, falling back to AdMob");
-            if (self.currentAdIsValid) {
-                if (LOG) NSLog(@"CLiAdPlusAdMobManager - AdMob ad is valid, using it");
-                return self.adMobBannerView;
-            }
-            else {
-                if (LOG) NSLog(@"CLiAdPlusAdMobManager - AdMob ad is not valid, no valid ad found");
-                return nil;
-            }
-        }
-    }
-    else {
-        // prioritize our AdMob object
-        if (self.currentAdIsValid) {
-            if (LOG) NSLog(@"CLiAdPlusAdMobManager - AdMob ad is valid and prioritized, using it");
-            return self.adMobBannerView;
-        }
-        else {
-            // Fallback to iAd in superclass
-            if (LOG) NSLog(@"CLiAdPlusAdMobManager - AdMob ad not valid, falling back to iAd");
-            return [super getCurrentValidAd];
-        }
-    }
-}
-
 
 #pragma mark GADBannerViewDelegate methods
 
 
 - (void)adViewDidReceiveAd:(GADBannerView *)view
 {
-    if (LOG) NSLog(@"<AdMob Event> :  adViewDidReceiveAd: %@", view);
+    if (LOG_AD_EVENTS) NSLog(@"<AdMob Event> :  adViewDidReceiveAd: %@", view);
     
     if (self._debug_simulateNonfunctional_AdMob) {
-        if (LOG) NSLog(@"CLiAdPlusAdMobManager - AdMob turned off, simulating error instead");
+        if (LOG_AD_EVENTS) NSLog(@"CLiAdPlusAdMobManager - AdMob turned off, simulating error instead");
         [self adView:view didFailToReceiveAdWithError:[NSError errorWithDomain:@"Simulate Fail" code:1 userInfo:nil]];
         return;
     }
@@ -152,11 +114,64 @@
 
 - (void)adView:(GADBannerView *)view didFailToReceiveAdWithError:(GADRequestError *)error
 {
-    NSLog(@"<AdMob Event> :  didFailToReceiveAdWithError: %@", [error localizedFailureReason]);
+    if (LOG_AD_EVENTS) NSLog(@"<AdMob Event> :  didFailToReceiveAdWithError: %@", [error localizedFailureReason]);
     self.currentAdIsValid = NO;
     [self respondToAdErrorEventFor:view];
 }
 
+
+
+#pragma mark - Superclass overrides
+
+
+// Override of superclass implementation.
+- (UIView*) getCurrentValidAd
+{
+    if (self._debug_simulateNonfunctional_AdMob) {
+        if (LOG_AD_EVENTS) NSLog(@"CLiAdPlusAdMobManager - simulating no valid AdMob");
+        return [super getCurrentValidAd];
+    }
+    
+    if (self.iAdPrimaryAdMobIsFallback) {
+        // prioritize iAd in superclass
+        UIView* iAd = [super getCurrentValidAd];
+        if (iAd) {
+            if (LOG_TRACE) NSLog(@"CLiAdPlusAdMobManager - iAd is valid and prioritized, using it");
+            return iAd;
+        }
+        else {
+            // Fallback to our AdMob object
+            if (LOG_TRACE) NSLog(@"CLiAdPlusAdMobManager - iAd is invalid, falling back to AdMob");
+            if (self.currentAdIsValid) {
+                if (LOG_TRACE) NSLog(@"CLiAdPlusAdMobManager - AdMob ad is valid, using it");
+                return self.adMobBannerView;
+            }
+            else {
+                if (LOG_TRACE) NSLog(@"CLiAdPlusAdMobManager - AdMob ad is not valid, no valid ad found");
+                return nil;
+            }
+        }
+    }
+    else {
+        // prioritize our AdMob object
+        if (self.currentAdIsValid) {
+            if (LOG_TRACE) NSLog(@"CLiAdPlusAdMobManager - AdMob ad is valid and prioritized, using it");
+            return self.adMobBannerView;
+        }
+        else {
+            // Fallback to iAd in superclass
+            if (LOG_TRACE) NSLog(@"CLiAdPlusAdMobManager - AdMob ad not valid, falling back to iAd");
+            return [super getCurrentValidAd];
+        }
+    }
+}
+
+
+- (void) shutdown
+{
+    self.adMobBannerView = nil;
+    [super shutdown];
+}
 
 
 
@@ -173,7 +188,7 @@
 - (void) set_debug_simulateNonfunctional_AdMob:(BOOL)turnOff
 {
     // Turn off and trigger immediate response
-    if (LOG) NSLog(@"<AdMob Event> :  AdMob disable: %@", turnOff?@"YES":@"NO");
+    if (LOG_AD_EVENTS) NSLog(@"<AdMob Event> :  AdMob disable: %@", turnOff?@"YES":@"NO");
     _debugAdMobTurnedOff = turnOff;
     
     if (turnOff) {

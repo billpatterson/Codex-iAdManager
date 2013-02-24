@@ -19,6 +19,7 @@
     UITabBarControllerDelegate
 >
 
+
 // Use normal [... init] to initialize.
 
 
@@ -44,10 +45,8 @@
 - (void) removeOverrideTargetForAds;
 
 
-
 // Subclasses should extend this method with additions and call [super shutdown]:
 - (void) shutdown;
-
 
 
 
